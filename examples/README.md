@@ -1,6 +1,7 @@
 # Examples
 
 * [Tweet](#tweet)
+* [Retweet](#retweet)
 * [Search](#search)
 * [Streams](#streams)
 * [Proxy](#proxy)
@@ -11,6 +12,17 @@
 
 ```javascript
 client.post('statuses/update', {status: 'I am a tweet'}, function(error, tweet, response){
+  if (!error) {
+    console.log(tweet);
+  }
+});
+```
+
+## Retweet
+
+```javascript
+var tweetId = 'XXXXX';
+client.post('statuses/retweet/' + tweetId, function(error, tweet, response){
   if (!error) {
     console.log(tweet);
   }
