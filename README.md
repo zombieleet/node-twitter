@@ -34,7 +34,7 @@ You will need valid Twitter developer credentials in the form of a set of consum
 var Twitter = require('twitter');
 ```
 
-## For User based authetication:
+## For User based authentication:
 
 ```javascript
 var client = new Twitter({
@@ -55,7 +55,7 @@ var client = new Twitter({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 ```
-## For Application Only based authetication:
+## For Application Only based authentication:
 
 You will need to fetch a bearer token from Twitter as documented [Here](https://dev.twitter.com/oauth/application-only), once you have it you can use it as follows.
 
