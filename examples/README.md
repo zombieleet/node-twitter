@@ -11,7 +11,7 @@
 ## Tweet
 
 ```javascript
-client.post('statuses/update', {status: 'I am a tweet'}, function(error, tweet, response){
+client.post('statuses/update', {status: 'I am a tweet'}, function(error, tweet, response) {
   if (!error) {
     console.log(tweet);
   }
@@ -22,7 +22,7 @@ client.post('statuses/update', {status: 'I am a tweet'}, function(error, tweet, 
 
 ```javascript
 var tweetId = 'XXXXX';
-client.post('statuses/retweet/' + tweetId, function(error, tweet, response){
+client.post('statuses/retweet/' + tweetId, function(error, tweet, response) {
   if (!error) {
     console.log(tweet);
   }
@@ -32,7 +32,7 @@ client.post('statuses/retweet/' + tweetId, function(error, tweet, response){
 ## Search
 
 ```javascript
-client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response){
+client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
    console.log(tweets);
 });
 ```
@@ -46,14 +46,14 @@ var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
   access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
 /**
  * Stream statuses filtered by keyword
  * number of tweets per second depends on topic popularity
  **/
-client.stream('statuses/filter', {track: 'twitter'},  function(stream){
+client.stream('statuses/filter', {track: 'twitter'},  function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
   });
@@ -84,7 +84,7 @@ var client = new Twitter({
 /**
  * Grab a list of favorited tweets
  **/
-client.get('favorites/list', function(error, tweets, response){
+client.get('favorites/list', function(error, tweets, response) {
   if (!error) {
     console.log(tweets);
   }
@@ -102,7 +102,7 @@ Lets upload a new image and post a tweet including.
 var data = require('fs').readFileSync('image.jpg');
 
 // Make post request on media endpoint. Pass file data as media parameter
-client.post('media/upload', {media: data}, function(error, media, response){
+client.post('media/upload', {media: data}, function(error, media, response) {
 
   if (!error) {
 
@@ -115,7 +115,7 @@ client.post('media/upload', {media: data}, function(error, media, response){
       media_ids: media.media_id_string // Pass the media id string
     }
 
-    client.post('statuses/update', status, function(error, tweet, response){
+    client.post('statuses/update', status, function(error, tweet, response) {
       if (!error) {
         console.log(tweet);
       }

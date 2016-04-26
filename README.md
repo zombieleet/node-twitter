@@ -15,7 +15,7 @@ var client = new Twitter({
 });
 
 var params = {screen_name: 'nodejs'};
-client.get('statuses/user_timeline', params, function(error, tweets, response){
+client.get('statuses/user_timeline', params, function(error, tweets, response) {
   if (!error) {
     console.log(tweets);
   }
@@ -52,7 +52,7 @@ var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
   access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 ```
 ## For Application Only based authentication:
@@ -73,7 +73,7 @@ Add your credentials accordingly.  I would use environment variables to keep you
 var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  bearer_token: process.env.TWITTER_BEARER_TOKEN,
+  bearer_token: process.env.TWITTER_BEARER_TOKEN
 });
 ```
 
@@ -96,7 +96,7 @@ You simply need to pass the endpoint and parameters to one of convenience method
 Example, lets get a [list of favorites](https://dev.twitter.com/rest/reference/get/favorites/list):
 
 ```javascript
-client.get('favorites/list', function(error, tweets, response){
+client.get('favorites/list', function(error, tweets, response) {
   if(error) throw error;
   console.log(tweets);  // The favorites.
   console.log(response);  // Raw response object.
@@ -106,7 +106,7 @@ client.get('favorites/list', function(error, tweets, response){
 How about an example that passes parameters?  Let's  [tweet something](https://dev.twitter.com/rest/reference/post/statuses/update):
 
 ```javascript
-client.post('statuses/update', {status: 'I Love Twitter'},  function(error, tweet, response){
+client.post('statuses/update', {status: 'I Love Twitter'},  function(error, tweet, response) {
   if(error) throw error;
   console.log(tweet);  // Tweet body.
   console.log(response);  // Raw response object.
