@@ -13,7 +13,7 @@ describe('Twitter', function() {
 
       var defaults = {};
 
-      before(function(){
+      before(function() {
         defaults = {
           consumer_key: null,
           consumer_secret: null,
@@ -35,12 +35,12 @@ describe('Twitter', function() {
         };
       });
 
-      it('create new instance', function(){
+      it('create new instance', function() {
         var client = new Twitter();
         assert(client instanceof Twitter);
       });
 
-      it('has default options', function(){
+      it('has default options', function() {
         var client = new Twitter();
         assert.equal(
           Object.keys(defaults).length,
@@ -52,7 +52,7 @@ describe('Twitter', function() {
         );
       });
 
-      it('accepts and overrides options', function(){
+      it('accepts and overrides options', function() {
         var options = {
           consumer_key: 'XXXXX',
           power: 'Max',
@@ -75,7 +75,7 @@ describe('Twitter', function() {
           options.request_options.headers.Accept);
       });
 
-      it('has pre-configured request object', function(next){
+      it('has pre-configured request object', function(next) {
         var client = new Twitter({
           request_options: {
             headers: {
@@ -87,7 +87,7 @@ describe('Twitter', function() {
         assert(client.hasOwnProperty('request'));
 
         nock('http://node.twitter').get('/').reply(200);
-        client.request.get('http://node.twitter/', function(error, response){
+        client.request.get('http://node.twitter/', function(error, response) {
 
           var headers = response.request.headers;
 
@@ -101,7 +101,6 @@ describe('Twitter', function() {
           next();
         });
 
-
       });
     });
   });
@@ -110,15 +109,15 @@ describe('Twitter', function() {
     describe('prototype.__buildEndpoint();', function() {
       var client;
 
-      before(function(){
+      before(function() {
         client = new Twitter({});
       });
 
-      it('method exists', function(){
+      it('method exists', function() {
         assert.equal(typeof client.__buildEndpoint, 'function');
       });
 
-      it('build url', function(){
+      it('build url', function() {
         var path = 'statuses';
         var endpoint = 'https://stream.twitter.com/1.1/statuses';
 
