@@ -2,7 +2,7 @@
   "name": "twitter",
   "version": "v1.3.0",
   "description": "Twitter API client library for node.js",
-  "license" : "MIT",
+  "license": "MIT",
   "keywords": [
     "twitter",
     "streaming",
@@ -19,7 +19,7 @@
     "lint": "eslint test/*.js lib/*.js"
   },
   "dependencies": {
-    "deep-extend": "^0.3.2",
+    "deep-extend": "^0.4.1",
     "request": "^2.51.0"
   },
   "devDependencies": {
