@@ -6,7 +6,6 @@
 * [Streams](#streams)
 * [Proxy](#proxy)
 * [Media](#media)
-* Authentication
 
 ## Tweet
 
