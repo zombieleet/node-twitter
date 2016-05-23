@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "eslint": "^2.10.0",
-    "mocha": "^2.1.0",
+    "mocha": "^2.4.5",
     "nock": "^0.57.0"
   },
   "main": "./lib/twitter"
