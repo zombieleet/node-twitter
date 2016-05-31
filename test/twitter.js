@@ -102,6 +102,25 @@ describe('Twitter', function() {
         });
 
       });
+
+      //Issue https://github.com/desmondmorris/node-twitter/pull/98
+      it('send good authentication data to request without bearer', function(next) {
+          var client = new Twitter({
+            'bearer_token':false,
+            'consumer_key':'6c84cbd30cf9350a990bad2bcc1bec5f',
+            'consumer_secret':'eb25d379ac9289dadbb4b57e3f6126d7',
+            'access_token_key':'a78bd9b40919c2a676a464419e238477',
+            'access_token_secret':'ff4a53caff3c88d04b73cd1156c1f7ac',
+          });
+          nock('http://node.twitter').get('/').reply(200);
+          client.request.get('http://node.twitter/', function(error, response) {
+            var authorizationHeader = response.request.headers.Authorization;
+            assert(authorizationHeader.indexOf('oauth_consumer_key="6c84cbd30cf9350a990bad2bcc1bec5f"' >= 0));
+            assert(authorizationHeader.indexOf('oauth_token="a78bd9b40919c2a676a464419e238477"' >= 0));
+            assert(authorizationHeader.indexOf('oauth_signature="BVjeSxnDVDgGI2XrkrpfLwFJMmw%3D"' >= 0));
+            next();
+          });
+      });
     });
   });
 
