@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "npm run lint && mocha",
-    "lint": "eslint test/*.js lib/*.js"
+    "lint": "./node_modules/.bin/eslint test/*.js lib/*.js"
   },
   "dependencies": {
     "deep-extend": "^0.4.1",
