@@ -119,8 +119,8 @@ Using the `stream` convenience method, you to open and manipulate data via a str
 
 ```javascript
 var stream = client.stream('statuses/filter', {track: 'javascript'});
-stream.on('data', function(tweet) {
-  console.log(tweet.text);
+stream.on('data', function(event) {
+  console.log(event && event.text);
 });
 
 stream.on('error', function(error) {
@@ -129,14 +129,25 @@ stream.on('error', function(error) {
 
 // You can also get the stream in a callback if you prefer.
 client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
-  stream.on('data', function(tweet) {
-    console.log(tweet.text);
+  stream.on('data', function(event) {
+    console.log(event && event.text);
   });
 
   stream.on('error', function(error) {
     throw error;
   });
 });
+```
+
+**Note** twitter stream several types of events, see [the docs](https://dev.twitter.com/streaming/overview/messages-types) for more info. There is no canonical way of detecting tweets versus other messages, but some users have had success with the following strategy.
+
+```javascript
+_ = require('lodash')
+const isTweet = _.matches({
+  contributors: _.isObject,
+  id_str: _.isString,
+  text: _.isString,
+})
 ```
 
 ## Examples
