@@ -143,7 +143,7 @@ client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
 
 ```javascript
 _ = require('lodash')
-const isTweet = _.matches({
+const isTweet = _.conforms({
   contributors: _.isObject,
   id_str: _.isString,
   text: _.isString,
