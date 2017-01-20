@@ -146,7 +146,7 @@ const client      = new Twitter({ /** ... **/ });
 const pathToMovie = '/path/to/your/video/animated-gif.gif';
 const mediaType   = 'image/gif'; // `'video/mp4'` is also supported
 const mediaData   = require('fs').readFileSync(pathToMovie);
-const dataSize    = require('fs').statSync(pathToMovie).size;
+const mediaSize    = require('fs').statSync(pathToMovie).size;
 
 initUpload() // Declare that you wish to upload some media
   .then(appendUpload) // Send the data for the media
