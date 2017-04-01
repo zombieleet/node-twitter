@@ -40,7 +40,7 @@ client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
 ## Streams
 
 ```javascript
-var Twitter = require('../lib/twitter');
+var Twitter = require('twitter');
 
 var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -69,7 +69,7 @@ client.stream('statuses/filter', {track: 'twitter'},  function(stream) {
 To make requests behind a proxy, you must pass the proxy location through to the request object.  This is done by adding a `request_options` object to the configuration object.
 
 ```javascript
-var Twitter = require('../lib/twitter');
+var Twitter = require('twitter');
 
 var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
